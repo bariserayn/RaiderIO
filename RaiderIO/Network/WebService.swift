@@ -12,6 +12,9 @@ protocol WebService {
 }
 
 class WebServiceImpl: WebService {
+    
+    let decoder = JSONDecoder()
+
     func getCharacterRequest(from endpoint: RaiderAPI, region: String, realm: String, name: String) async throws -> Character {
         let urlWithPath = endpoint.url + "?region=\(region)&realm=\(realm)&name=\(name)"
         
@@ -28,7 +31,7 @@ class WebServiceImpl: WebService {
         }
                 
         do {
-            let character = try JSONDecoder().decode(Character.self, from: data)
+            let character = try decoder.decode(Character.self, from: data)
             return character
         } catch {
             throw RIError.invalidData

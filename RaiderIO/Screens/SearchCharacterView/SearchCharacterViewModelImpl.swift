@@ -5,13 +5,16 @@
 //  Created by baris on 7.03.2022.
 //
 
-import Foundation
+import SwiftUI
 
 protocol SearchCharacterViewModel {
     func getCharacterData() async
 }
 
-final class SearchCharacterViewModelImpl: ObservableObject, SearchCharacterViewModel {
+@MainActor final class SearchCharacterViewModelImpl: ObservableObject, SearchCharacterViewModel {
+    @Published var character: Character?
+    @Published var isShowingDetail = false
+    
     private let service: WebService
     
     init(service: WebService) {
@@ -35,21 +38,23 @@ final class SearchCharacterViewModelImpl: ObservableObject, SearchCharacterViewM
             return
         }
         
-        do {
-            let character = try await service.getCharacterRequest(from: .getCharacter, region: region, realm: realm, name: characterName)
-            print(character)
-        } catch(let error) {
-            let riError = error as! RIError
-            DispatchQueue.main.async {
-                switch riError {
-                    case .invalidSearch:
-                        self.alertItem = AlertContext.invalidSearch
-                    case .invalidInput:
-                        self.alertItem = AlertContext.invalidInput
-                    case .invalidResponse:
-                        self.alertItem = AlertContext.invalidResponse
-                    case .invalidData:
-                        self.alertItem = AlertContext.invalidData
+        Task {
+            do {
+                character = try await service.getCharacterRequest(from: .getCharacter, region: region, realm: realm, name: characterName)
+                isShowingDetail = true
+            } catch(let error) {
+                let riError = error as! RIError
+                DispatchQueue.main.async {
+                    switch riError {
+                        case .invalidSearch:
+                            self.alertItem = AlertContext.invalidSearch
+                        case .invalidInput:
+                            self.alertItem = AlertContext.invalidInput
+                        case .invalidResponse:
+                            self.alertItem = AlertContext.invalidResponse
+                        case .invalidData:
+                            self.alertItem = AlertContext.invalidData
+                    }
                 }
             }
         }

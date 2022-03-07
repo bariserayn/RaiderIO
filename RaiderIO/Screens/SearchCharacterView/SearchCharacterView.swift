@@ -54,6 +54,11 @@ struct SearchCharacterView: View {
                 } label: {
                     RIButton(title: "Search")
                 }
+                
+                if viewModel.isShowingDetail {
+                    NavigationLink(destination: CharacterDetailView(character: viewModel.character!), isActive: $viewModel.isShowingDetail) { }
+                }
+                
                 Spacer()
             }
             .toolbar {
