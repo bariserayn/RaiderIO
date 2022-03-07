@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SearchCharacterView: View {
-    @StateObject private var viewModel = SearchCharacterViewModelImpl()
+    @StateObject private var viewModel = SearchCharacterViewModelImpl(service: WebServiceImpl())
     @FocusState private var focusedTextField: SearchTextField?
     
     enum SearchTextField {
@@ -48,7 +48,9 @@ struct SearchCharacterView: View {
                 }.padding(7)
                 
                 Button {
-                    viewModel.getCharacterData()
+                    Task {
+                        await viewModel.getCharacterData()
+                    }
                 } label: {
                     RIButton(title: "Search")
                 }
