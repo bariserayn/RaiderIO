@@ -12,3 +12,7 @@ enum SFSymbol {
     static let star = "star.circle"
     static let search = "magnifyingglass.circle"
 }
+
+enum Images {
+    static let logo = "logo"
+}

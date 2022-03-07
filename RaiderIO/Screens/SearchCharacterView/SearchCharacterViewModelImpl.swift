@@ -11,11 +11,12 @@ protocol SearchCharacterViewModel {
     func getCharacterData()
 }
 
-class SearchCharacterViewModelImpl: ObservableObject, SearchCharacterViewModel {
+final class SearchCharacterViewModelImpl: ObservableObject, SearchCharacterViewModel {
     @Published var region = "EU"
     @Published var characterName = ""
     @Published var realm = ""
-        
+    @Published var alertItem: AlertItem?
+    
     func isValidInput() -> Bool {
         guard !characterName.isEmpty,
               !realm.isEmpty else { return false }
@@ -23,6 +24,11 @@ class SearchCharacterViewModelImpl: ObservableObject, SearchCharacterViewModel {
     }
     
     func getCharacterData() {
+        guard isValidInput() else {
+            alertItem = AlertContext.invalidSearch
+            return
+        }
+        
         
     }
 }

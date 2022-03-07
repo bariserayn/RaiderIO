@@ -20,21 +20,20 @@ struct SearchCharacterView: View {
     var body: some View {
         NavigationView {
             VStack(spacing: 40) {
-                Image("logo")
+                Image(Images.logo)
                     .resizable()
                     .scaledToFit()
                     .frame(height: 120)
                     .padding()
-                GroupBox {
-                    Text("Search Character")
-                        .font(.title2)
+                
+                GroupBox() {
+                    Text("Character Search").font(.title2)
                     
                     Picker("Region", selection: $viewModel.region) {
                         ForEach(regions, id: \.self) {
                             Text($0).tag($0)
                         }
-                    }
-                    .pickerStyle(.segmented)
+                    }.pickerStyle(.segmented)
                     
                     TextField("Character Name", text: $viewModel.characterName)
                         .focused($focusedTextField, equals: .characterName)
@@ -46,9 +45,10 @@ struct SearchCharacterView: View {
                         .focused($focusedTextField, equals: .realm)
                         .textFieldStyle(.roundedBorder)
                         .disableAutocorrection(true)
-                }
+                }.padding(7)
+                
                 Button {
-
+                    viewModel.getCharacterData()
                 } label: {
                     RIButton(title: "Search")
                 }
@@ -59,6 +59,11 @@ struct SearchCharacterView: View {
                     Button("Dismiss") { focusedTextField = nil }
                 }
             }
+            .alert(item: $viewModel.alertItem, content: { alertItem in
+                Alert(title: alertItem.title,
+                      message: alertItem.message,
+                      dismissButton: alertItem.dismissButton)
+            })
         }
     }
 }
