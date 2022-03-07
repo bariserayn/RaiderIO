@@ -10,8 +10,8 @@ import SwiftUI
 struct LeaderboardListView: View {
     var body: some View {
         NavigationView {
-            Text("Top Runs View")
-                .navigationTitle("Top Runs")
+            Text("")
+                .navigationTitle("Top Timed Runs")
         }
     }
 }

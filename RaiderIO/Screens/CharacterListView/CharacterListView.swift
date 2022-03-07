@@ -10,8 +10,8 @@ import SwiftUI
 struct CharacterListView: View {
     var body: some View {
         NavigationView {
-            Text("Character List View")
-                .navigationTitle("Character List")
+            Text("")
+                .navigationTitle("Favorited Characters")
         }
     }
 }

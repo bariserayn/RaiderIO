@@ -10,10 +10,12 @@ import SwiftUI
 struct AppTabView: View {
     var body: some View {
         TabView {
+            SearchCharacterView()
+                .tabItem { Label("Search", systemImage: SFSymbol.search) }
             CharacterListView()
-                .tabItem { Label("Character", systemImage: "person.circle") }
+                .tabItem { Label("Favorites", systemImage: SFSymbol.person) }
             LeaderboardListView()
-                .tabItem { Label("Leaderboard", systemImage: "star.circle") }
+                .tabItem { Label("Leaderboard", systemImage: SFSymbol.star) }
         }
         .accentColor(.brandPrimary)
     }
