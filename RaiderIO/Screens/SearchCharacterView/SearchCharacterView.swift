@@ -37,12 +37,12 @@ struct SearchCharacterView: View {
                     
                     TextField("Realm", text: $viewModel.realm)
                         .focused($focusedTextField, equals: .realm)
+                        .onSubmit { focusedTextField = .characterName }
                         .textFieldStyle(.roundedBorder)
                         .disableAutocorrection(true)
                     
                     TextField("Character Name", text: $viewModel.characterName)
                         .focused($focusedTextField, equals: .characterName)
-                        .onSubmit { focusedTextField = .realm }
                         .textFieldStyle(.roundedBorder)
                         .disableAutocorrection(true)
                     
