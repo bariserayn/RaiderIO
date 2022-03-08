@@ -35,16 +35,17 @@ struct SearchCharacterView: View {
                         }
                     }.pickerStyle(.segmented)
                     
+                    TextField("Realm", text: $viewModel.realm)
+                        .focused($focusedTextField, equals: .realm)
+                        .textFieldStyle(.roundedBorder)
+                        .disableAutocorrection(true)
+                    
                     TextField("Character Name", text: $viewModel.characterName)
                         .focused($focusedTextField, equals: .characterName)
                         .onSubmit { focusedTextField = .realm }
                         .textFieldStyle(.roundedBorder)
                         .disableAutocorrection(true)
                     
-                    TextField("Realm", text: $viewModel.realm)
-                        .focused($focusedTextField, equals: .realm)
-                        .textFieldStyle(.roundedBorder)
-                        .disableAutocorrection(true)
                 }.padding(7)
                 
                 Button {
