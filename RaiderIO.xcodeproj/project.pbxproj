@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		60143DD427D9444400A615E9 /* CharacterDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60143DD327D9444400A615E9 /* CharacterDetailViewModel.swift */; };
 		6089224D27D692A400F4311F /* AlertItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6089224C27D692A400F4311F /* AlertItem.swift */; };
 		6089225127D6970200F4311F /* RaiderEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6089225027D6970200F4311F /* RaiderEndpoint.swift */; };
 		6089225327D6971000F4311F /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6089225227D6971000F4311F /* WebService.swift */; };
@@ -28,6 +29,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		60143DD327D9444400A615E9 /* CharacterDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailViewModel.swift; sourceTree = "<group>"; };
 		6089224C27D692A400F4311F /* AlertItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertItem.swift; sourceTree = "<group>"; };
 		6089225027D6970200F4311F /* RaiderEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaiderEndpoint.swift; sourceTree = "<group>"; };
 		6089225227D6971000F4311F /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				6089225E27D6A27F00F4311F /* CharacterDetailView.swift */,
+				60143DD327D9444400A615E9 /* CharacterDetailViewModel.swift */,
 			);
 			path = CharacterDetailView;
 			sourceTree = "<group>";
@@ -280,6 +283,7 @@
 				6089225327D6971000F4311F /* WebService.swift in Sources */,
 				60E6BE6D27D646D800B909F5 /* RaiderIOApp.swift in Sources */,
 				60E6BE8127D64E2600B909F5 /* Color+Ext.swift in Sources */,
+				60143DD427D9444400A615E9 /* CharacterDetailViewModel.swift in Sources */,
 				60E6BE8527D652D400B909F5 /* SearchCharacterView.swift in Sources */,
 				60E6BE9127D68B9200B909F5 /* SearchCharacterViewModelImpl.swift in Sources */,
 				60E6BE8327D64FE900B909F5 /* Constants.swift in Sources */,

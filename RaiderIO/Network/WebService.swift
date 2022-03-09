@@ -16,8 +16,8 @@ class WebServiceImpl: WebService {
     let decoder = JSONDecoder()
 
     func getCharacterRequest(from endpoint: RaiderAPI, region: String, realm: String, name: String) async throws -> Character {
-        let urlWithPath = endpoint.url + "?region=\(region)&realm=\(realm)&name=\(name)"
-        
+        let urlWithPath = endpoint.url + "?region=\(region)&realm=\(realm)&name=\(name)&fields=covenant,guild,raid_progression,gear,mythic_plus_scores_by_season:current"
+
         guard let _ = URL(string: urlWithPath) else {
             throw RIError.invalidResponse
         }
