@@ -25,6 +25,10 @@ struct CharacterDetailView: View {
                         ProgressView()
                     }
                     .frame(width: 100, height: 100)
+                    Image(character.covenantName)
+                        .resizable()
+                        .offset(x: 44, y: 40)
+                        .frame(width: 40, height: 40)
                 }
                 
                 VStack(alignment: .leading) {

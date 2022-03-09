@@ -69,6 +69,21 @@ struct Character: Codable {
         }
     }
     
+    var covenantName: String {
+        switch covenant.name {
+            case "Night Fae":
+                return Covenants.nightFae
+            case "Kyrian":
+                return Covenants.kyrian
+            case "Venthyr":
+                return Covenants.venthyr
+            case "Necrolord":
+                return Covenants.necrolord
+            default:
+                return "xmark"
+        }
+    }
+    
     enum CodingKeys: String, CodingKey {
         case name
         case race

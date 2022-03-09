@@ -46,3 +46,10 @@ enum ClassColors {
     static let warlockColor = Color(hex: "#8788EE")
     static let warriorColor = Color(hex: "#C69B6D")
 }
+
+enum Covenants {
+    static let kyrian = "kyrian"
+    static let venthyr = "venthyr"
+    static let necrolord = "necrolord"
+    static let nightFae = "nightFae"
+}
