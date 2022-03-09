@@ -15,7 +15,7 @@ struct SearchCharacterView: View {
         case characterName, realm
     }
     
-    let regions = ["EU", "NA"]
+    let regions = ["EU", "US"]
     
     var body: some View {
         NavigationView {
