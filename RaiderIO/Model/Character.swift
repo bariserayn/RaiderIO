@@ -40,35 +40,35 @@ struct Character: Codable {
     
     var classColor: Color {
         switch rClass {
-            case "Death Knight":
-                return Color(hex: "#C41E3A")
-            case "Demon Hunter":
-                return Color(hex: "#A330C9")
-            case "Druid":
-                return Color(hex: "#FF7C0A")
-            case "Hunter":
-                return Color(hex: "#AAD372")
-            case "Mage":
-                return Color(hex: "#3FC7EB")
-            case "Monk":
-                return Color(hex: "#00FF98")
-            case "Paladin":
-                return Color(hex: "#F48CBA")
-            case "Priest":
-                return Color(hex: "#FFFFFF")
-            case "Rogue":
-                return Color(hex: "FFF468")
-            case "Shaman":
-                return Color(hex: "#0070DD")
-            case "Warlock":
-                return Color(hex: "#8788EE")
-            case "Warrior":
-                return Color(hex: "#C69B6D")
+            case Classes.deathKnight:
+                return ClassColors.deathKnightColor
+            case Classes.demonHunter:
+                return ClassColors.demonHunterColor
+            case Classes.druid:
+                return ClassColors.druidColor
+            case Classes.hunter:
+                return ClassColors.hunterColor
+            case Classes.mage:
+                return ClassColors.mageColor
+            case Classes.monk:
+                return ClassColors.monkColor
+            case Classes.paladin:
+                return ClassColors.paladinColor
+            case Classes.priest:
+                return ClassColors.priestColor
+            case Classes.rogue:
+                return ClassColors.rogueColor
+            case Classes.shaman:
+                return ClassColors.shamanColor
+            case Classes.warlock:
+                return ClassColors.warlockColor
+            case Classes.warrior:
+                return ClassColors.warriorColor
             default:
                 return .white
         }
     }
-
+    
     enum CodingKeys: String, CodingKey {
         case name
         case race
