@@ -19,49 +19,58 @@ struct SearchCharacterView: View {
     
     var body: some View {
         NavigationView {
-            VStack(spacing: 40) {
-                Image(Images.logo)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(height: 120)
-                    .padding()
-                
-                GroupBox() {
-                    Text("Character Search").font(.title2)
+            ZStack {
+                VStack(spacing: 40) {
+                    Image(Images.logo)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(height: 120)
+                        .padding()
                     
-                    Picker("Region", selection: $viewModel.region) {
-                        ForEach(regions, id: \.self) {
-                            Text($0).tag($0)
+                    GroupBox() {
+                        Text("Character Search").font(.title2)
+                        
+                        Picker("Region", selection: $viewModel.region) {
+                            ForEach(regions, id: \.self) {
+                                Text($0).tag($0)
+                            }
                         }
-                    }.pickerStyle(.segmented)
+                        .pickerStyle(.segmented)
+                        .disabled(viewModel.isLoading)
+                        
+                        TextField("Realm", text: $viewModel.realm)
+                            .focused($focusedTextField, equals: .realm)
+                            .onSubmit { focusedTextField = .characterName }
+                            .textFieldStyle(.roundedBorder)
+                            .disableAutocorrection(true)
+                        
+                        TextField("Character Name", text: $viewModel.characterName)
+                            .focused($focusedTextField, equals: .characterName)
+                            .textFieldStyle(.roundedBorder)
+                            .disableAutocorrection(true)
+                        
+                    }.padding(7)
                     
-                    TextField("Realm", text: $viewModel.realm)
-                        .focused($focusedTextField, equals: .realm)
-                        .onSubmit { focusedTextField = .characterName }
-                        .textFieldStyle(.roundedBorder)
-                        .disableAutocorrection(true)
+                    Button {
+                        Task {
+                            await viewModel.getCharacterData()
+                        }
+                    } label: {
+                        RIButton(title: "Search")
+                    }.disabled(viewModel.isLoading)
                     
-                    TextField("Character Name", text: $viewModel.characterName)
-                        .focused($focusedTextField, equals: .characterName)
-                        .textFieldStyle(.roundedBorder)
-                        .disableAutocorrection(true)
-                    
-                }.padding(7)
-                
-                Button {
-                    Task {
-                        await viewModel.getCharacterData()
+                    if viewModel.isShowingDetail {
+                        NavigationLink(destination: CharacterDetailView(character: viewModel.character!), isActive: $viewModel.isShowingDetail) { }
                     }
-                } label: {
-                    RIButton(title: "Search")
+                    
+                    Spacer()
                 }
                 
-                if viewModel.isShowingDetail {
-                    NavigationLink(destination: CharacterDetailView(character: viewModel.character!), isActive: $viewModel.isShowingDetail) { }
+                if viewModel.isLoading {
+                    LoadingView()
                 }
-                
-                Spacer()
             }
+            
             .toolbar {
                 ToolbarItemGroup(placement: .keyboard) {
                     Button("Dismiss") { focusedTextField = nil }

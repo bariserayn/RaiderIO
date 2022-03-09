@@ -12,19 +12,19 @@ protocol SearchCharacterViewModel {
 }
 
 @MainActor final class SearchCharacterViewModelImpl: ObservableObject, SearchCharacterViewModel {
+    @Published var region = "EU"
+    @Published var characterName = ""
+    @Published var realm = ""
+    @Published var alertItem: AlertItem?
     @Published var character: Character?
+    @Published var isLoading = false
     @Published var isShowingDetail = false
-    
+
     private let service: WebService
     
     init(service: WebService) {
         self.service = service
     }
-    
-    @Published var region = "EU"
-    @Published var characterName = ""
-    @Published var realm = ""
-    @Published var alertItem: AlertItem?
     
     func isValidInput() -> Bool {
         guard !characterName.isEmpty,
@@ -37,6 +37,8 @@ protocol SearchCharacterViewModel {
             alertItem = AlertContext.invalidSearch
             return
         }
+        
+        showLoadingView()
         
         Task {
             do {
@@ -57,6 +59,10 @@ protocol SearchCharacterViewModel {
                     }
                 }
             }
+            hideLoadingView()
         }
     }
+    
+    private func showLoadingView() { isLoading = true }
+    private func hideLoadingView() { isLoading = false }
 }

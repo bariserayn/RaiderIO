@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		60143DD427D9444400A615E9 /* CharacterDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60143DD327D9444400A615E9 /* CharacterDetailViewModel.swift */; };
+		60143DD627D953C800A615E9 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60143DD527D953C800A615E9 /* LoadingView.swift */; };
 		6089224D27D692A400F4311F /* AlertItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6089224C27D692A400F4311F /* AlertItem.swift */; };
 		6089225127D6970200F4311F /* RaiderEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6089225027D6970200F4311F /* RaiderEndpoint.swift */; };
 		6089225327D6971000F4311F /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6089225227D6971000F4311F /* WebService.swift */; };
@@ -30,6 +31,7 @@
 
 /* Begin PBXFileReference section */
 		60143DD327D9444400A615E9 /* CharacterDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailViewModel.swift; sourceTree = "<group>"; };
+		60143DD527D953C800A615E9 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		6089224C27D692A400F4311F /* AlertItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertItem.swift; sourceTree = "<group>"; };
 		6089225027D6970200F4311F /* RaiderEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaiderEndpoint.swift; sourceTree = "<group>"; };
 		6089225227D6971000F4311F /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 				60E6BE6C27D646D800B909F5 /* RaiderIOApp.swift */,
 				60E6BE7027D646DA00B909F5 /* Assets.xcassets */,
 				60E6BE7227D646DA00B909F5 /* Preview Content */,
+				60143DD527D953C800A615E9 /* LoadingView.swift */,
 			);
 			path = RaiderIO;
 			sourceTree = "<group>";
@@ -287,6 +290,7 @@
 				60E6BE8527D652D400B909F5 /* SearchCharacterView.swift in Sources */,
 				60E6BE9127D68B9200B909F5 /* SearchCharacterViewModelImpl.swift in Sources */,
 				60E6BE8327D64FE900B909F5 /* Constants.swift in Sources */,
+				60143DD627D953C800A615E9 /* LoadingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
