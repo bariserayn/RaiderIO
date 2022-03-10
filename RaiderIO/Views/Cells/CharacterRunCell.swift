@@ -19,12 +19,12 @@ struct CharacterRunCell: View {
                     .frame(width: 45, height: 45)
                     .padding(.leading, 5)
                 Text(mythicRun.dungeon)
-                    .frame(width: 110, alignment: .leading)
+                    .frame(width: 100, alignment: .leading)
                     .minimumScaleFactor(0.75)
             }
             
             HStack {
-                Text("+\(mythicRun.mythicLevel)")
+                Text("\(mythicRun.mythicLevel)")
                     .fontWeight(.semibold)
                     .padding(.trailing, -3)
                 ForEach (0..<mythicRun.keystoneUpgrades) { _ in
@@ -34,7 +34,7 @@ struct CharacterRunCell: View {
                         .foregroundColor(.yellow)
                         .padding(-3)
                 }
-            }.frame(width: 60, alignment: .leading)
+            }.frame(width: 70, alignment: .leading)
             
             HStack {
                 Text(formatScore(mythicRun.score))

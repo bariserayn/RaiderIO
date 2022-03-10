@@ -33,7 +33,7 @@ struct MockData {
         let mythicRun = MythicPlusRun(dungeon: "Theater of Pain",
                                        shortName: "TOP",
                                        mythicLevel: 15,
-                                       keystoneUpgrades: 15,
+                                       keystoneUpgrades: 3,
                                        score: 15.5,
                                        clearTime: 555555,
                                        affixes: [Affix(name: "Tyrannical"),
