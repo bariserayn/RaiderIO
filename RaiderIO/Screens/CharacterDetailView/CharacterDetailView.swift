@@ -31,7 +31,7 @@ struct CharacterDetailView: View {
                                 .frame(width: 100, height: 100)
                                 Image(character.covenantName)
                                     .resizable()
-                                    .offset(x: 44, y: 40)
+                                    .offset(x: 45, y: 45)
                                     .frame(width: 40, height: 40)
                             }
                             
