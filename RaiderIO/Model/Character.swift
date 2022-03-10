@@ -23,7 +23,7 @@ struct Character: Codable {
     let guild: Guild?
     let raidProgression: RaidProgression
     let mythicPlusScoresBySeason: [MythicPlusScoresBySeason]
-    let mythicPlusBestRuns: [MythicPlusRun]
+    var mythicPlusBestRuns: [MythicPlusRun]
     
     var guildUrl: String? {
         guard let guild = guild else { return nil }

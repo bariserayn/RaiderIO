@@ -12,8 +12,9 @@ protocol CharacterDetailViewModel {
 }
 
 @MainActor final class CharacterDetailViewImpl: ObservableObject, CharacterDetailViewModel {
-    @Published var character: Character?
-    
+    @Published var isShowingDetail = false
+    @Published var selectedDungeon: MythicPlusRun?
+
     func saveCharacterData(character: Character) async {
         print("\(character) saving...")
     }

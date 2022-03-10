@@ -34,7 +34,7 @@ struct CharacterRunCell: View {
                         .foregroundColor(.yellow)
                         .padding(-3)
                 }
-            }.frame(width: 70, alignment: .leading)
+            }.frame(width: 70, alignment: .center)
             
             HStack {
                 Text(formatScore(mythicRun.score))
