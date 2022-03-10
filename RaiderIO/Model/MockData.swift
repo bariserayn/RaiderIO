@@ -23,7 +23,8 @@ struct MockData {
                                   gear: Gear(itemLevelEquipped: 244),
                                   guild: Guild(name: "Fury"),
                                   raidProgression: RaidProgression(sepulcherOfTheFirstOnes: RaidInstance(summary: "4/12")),
-                                  mythicPlusScoresBySeason: [MythicPlusScoresBySeason(season: "sl-3", segments: Segments(all: All(score: 555, color: ("#fffff"))))])
+                                  mythicPlusScoresBySeason: [MythicPlusScoresBySeason(season: "sl-3", segments: Segments(all: All(score: 555, color: ("#fffff"))))],
+                                  mythicPlusBestRuns: [MythicPlusRun(dungeon: "Theater of Pain", shortName: "TOP", mythicLevel: 10, keystoneUpgrades: 2, score: 120.5, clearTime: 36, affixes: [Affix(name: "Bolstering"), Affix(name: "Tyrannical")])])
         
         return character
     }

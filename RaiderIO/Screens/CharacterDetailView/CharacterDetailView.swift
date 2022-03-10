@@ -65,6 +65,15 @@ struct CharacterDetailView: View {
             }
             .navigationTitle("Current Season")
         }
+        List {
+            Section(header: Text("Top 10 Timed Run")) {
+                ForEach(character.mythicPlusBestRuns) { mythicRun in
+                    CharacterRunCell(mythicRun: mythicRun)
+                }
+            }
+        }
+        .listStyle(.plain)
+        
         Spacer()
     }
 }

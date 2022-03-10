@@ -23,6 +23,7 @@ struct Character: Codable {
     let guild: Guild?
     let raidProgression: RaidProgression
     let mythicPlusScoresBySeason: [MythicPlusScoresBySeason]
+    let mythicPlusBestRuns: [MythicPlusRun]
     
     var guildUrl: String? {
         guard let guild = guild else { return nil }
@@ -100,6 +101,7 @@ struct Character: Codable {
         case guild
         case raidProgression = "raid_progression"
         case mythicPlusScoresBySeason = "mythic_plus_scores_by_season"
+        case mythicPlusBestRuns = "mythic_plus_best_runs"
     }
 }
 
@@ -145,3 +147,27 @@ struct All: Codable {
     let color: String
 }
 
+struct MythicPlusRun: Codable, Identifiable {
+    let id = UUID()
+    let dungeon: String
+    let shortName: String
+    let mythicLevel: Int
+    let keystoneUpgrades: Int
+    let score: Double
+    let clearTime: Int
+    let affixes: [Affix]
+    
+    enum CodingKeys: String, CodingKey {
+        case dungeon
+        case shortName = "short_name"
+        case mythicLevel = "mythic_level"
+        case keystoneUpgrades = "num_keystone_upgrades"
+        case clearTime = "clear_time_ms"
+        case score
+        case affixes
+    }
+}
+
+struct Affix: Codable {
+    let name: String
+}

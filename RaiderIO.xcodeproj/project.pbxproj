@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		60143DD427D9444400A615E9 /* CharacterDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60143DD327D9444400A615E9 /* CharacterDetailViewModel.swift */; };
 		60143DD627D953C800A615E9 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60143DD527D953C800A615E9 /* LoadingView.swift */; };
+		60143DDA27D95F3500A615E9 /* CharacterRunCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60143DD927D95F3500A615E9 /* CharacterRunCell.swift */; };
+		603AB7B227DA74B500E0C228 /* TimeInterval+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603AB7B127DA74B500E0C228 /* TimeInterval+Ext.swift */; };
+		603AB7B427DA74C700E0C228 /* Int+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603AB7B327DA74C700E0C228 /* Int+Ext.swift */; };
 		6089224D27D692A400F4311F /* AlertItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6089224C27D692A400F4311F /* AlertItem.swift */; };
 		6089225127D6970200F4311F /* RaiderEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6089225027D6970200F4311F /* RaiderEndpoint.swift */; };
 		6089225327D6971000F4311F /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6089225227D6971000F4311F /* WebService.swift */; };
@@ -32,6 +35,9 @@
 /* Begin PBXFileReference section */
 		60143DD327D9444400A615E9 /* CharacterDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailViewModel.swift; sourceTree = "<group>"; };
 		60143DD527D953C800A615E9 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		60143DD927D95F3500A615E9 /* CharacterRunCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterRunCell.swift; sourceTree = "<group>"; };
+		603AB7B127DA74B500E0C228 /* TimeInterval+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeInterval+Ext.swift"; sourceTree = "<group>"; };
+		603AB7B327DA74C700E0C228 /* Int+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Ext.swift"; sourceTree = "<group>"; };
 		6089224C27D692A400F4311F /* AlertItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertItem.swift; sourceTree = "<group>"; };
 		6089225027D6970200F4311F /* RaiderEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaiderEndpoint.swift; sourceTree = "<group>"; };
 		6089225227D6971000F4311F /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
@@ -64,6 +70,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		603AB7B027DA67AD00E0C228 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				60143DD927D95F3500A615E9 /* CharacterRunCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		6089224E27D696D300F4311F /* Network */ = {
 			isa = PBXGroup;
 			children = (
@@ -114,8 +128,8 @@
 				60E6BE8B27D689A900B909F5 /* Utilities */,
 				6089225427D6972900F4311F /* Model */,
 				6089224E27D696D300F4311F /* Network */,
-				60E6BE8C27D689BB00B909F5 /* Screens */,
 				60E6BE8927D6899100B909F5 /* Views */,
+				60E6BE8C27D689BB00B909F5 /* Screens */,
 				60E6BE6C27D646D800B909F5 /* RaiderIOApp.swift */,
 				60E6BE7027D646DA00B909F5 /* Assets.xcassets */,
 				60E6BE7227D646DA00B909F5 /* Preview Content */,
@@ -136,6 +150,8 @@
 			isa = PBXGroup;
 			children = (
 				60E6BE8027D64E2600B909F5 /* Color+Ext.swift */,
+				603AB7B127DA74B500E0C228 /* TimeInterval+Ext.swift */,
+				603AB7B327DA74C700E0C228 /* Int+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -143,6 +159,7 @@
 		60E6BE8927D6899100B909F5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				603AB7B027DA67AD00E0C228 /* Cells */,
 				60E6BE8A27D6899500B909F5 /* Buttons */,
 			);
 			path = Views;
@@ -274,6 +291,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				6089225F27D6A27F00F4311F /* CharacterDetailView.swift in Sources */,
+				603AB7B227DA74B500E0C228 /* TimeInterval+Ext.swift in Sources */,
+				60143DDA27D95F3500A615E9 /* CharacterRunCell.swift in Sources */,
 				6089225627D6973100F4311F /* Character.swift in Sources */,
 				60E6BE8727D65A2C00B909F5 /* RIButton.swift in Sources */,
 				6089226327D6A32F00F4311F /* MockData.swift in Sources */,
@@ -285,6 +304,7 @@
 				60E6BE6F27D646D800B909F5 /* AppTabView.swift in Sources */,
 				6089225327D6971000F4311F /* WebService.swift in Sources */,
 				60E6BE6D27D646D800B909F5 /* RaiderIOApp.swift in Sources */,
+				603AB7B427DA74C700E0C228 /* Int+Ext.swift in Sources */,
 				60E6BE8127D64E2600B909F5 /* Color+Ext.swift in Sources */,
 				60143DD427D9444400A615E9 /* CharacterDetailViewModel.swift in Sources */,
 				60E6BE8527D652D400B909F5 /* SearchCharacterView.swift in Sources */,
