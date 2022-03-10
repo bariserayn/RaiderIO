@@ -27,7 +27,7 @@ struct CharacterRunCell: View {
                 Text("+\(mythicRun.mythicLevel)")
                     .fontWeight(.semibold)
                     .padding(.trailing, -3)
-                ForEach (0..<mythicRun.keystoneUpgrades+1) { _ in
+                ForEach (0..<mythicRun.keystoneUpgrades) { _ in
                     Image(systemName: "star.fill")
                         .resizable()
                         .frame(width: 10, height: 10)
