@@ -84,7 +84,17 @@ struct CharacterDetailView: View {
                         }
                     }.listStyle(.plain)
                 }
-            }.navigationTitle("Current Season")
+            }
+            .navigationTitle("Current Season")
+            .toolbar {
+                Button {
+                    Task {
+                        await viewModel.saveCharacterData(character: character)
+                    }
+                } label: {
+                    Image(systemName: SFSymbol.star)
+                }
+            }
             
             if viewModel.isShowingDetail {
                 FullScreenBlackTransparencyView()

@@ -9,7 +9,9 @@ import SwiftUI
 
 enum SFSymbol {
     static let person = "person.circle"
-    static let star = "star.circle"
+    static let star = "star"
+    static let starCircle = "star.circle"
+    static let starFill = "star.fill"
     static let search = "magnifyingglass.circle"
 }
 

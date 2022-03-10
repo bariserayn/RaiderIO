@@ -28,7 +28,7 @@ struct CharacterRunCell: View {
                     .fontWeight(.semibold)
                     .padding(.trailing, -3)
                 ForEach (0..<mythicRun.keystoneUpgrades) { _ in
-                    Image(systemName: "star.fill")
+                    Image(systemName: SFSymbol.starFill)
                         .resizable()
                         .frame(width: 10, height: 10)
                         .foregroundColor(.yellow)

@@ -15,7 +15,7 @@ struct AppTabView: View {
             CharacterListView()
                 .tabItem { Label("Favorites", systemImage: SFSymbol.person) }
             LeaderboardListView()
-                .tabItem { Label("Leaderboard", systemImage: SFSymbol.star) }
+                .tabItem { Label("Leaderboard", systemImage: SFSymbol.starCircle) }
         }
         .accentColor(.brandPrimary)
     }
