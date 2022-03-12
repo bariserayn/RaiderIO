@@ -155,7 +155,8 @@ struct MythicPlusRun: Codable, Identifiable {
     let keystoneUpgrades: Int
     let score: Double
     let clearTime: Int
-    let affixes: [Affix]
+    var affixes: [Affix]
+    let url: String
     
     enum CodingKeys: String, CodingKey {
         case dungeon
@@ -165,6 +166,7 @@ struct MythicPlusRun: Codable, Identifiable {
         case clearTime = "clear_time_ms"
         case score
         case affixes
+        case url
     }
 }
 

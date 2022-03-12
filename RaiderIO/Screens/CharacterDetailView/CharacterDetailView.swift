@@ -97,7 +97,8 @@ struct CharacterDetailView: View {
             
             if viewModel.isShowingDetail {
                 FullScreenBlackTransparencyView()
-                CharacterDungeonDetailView(mythicPlusRun: viewModel.selectedDungeon!, isShowingDetailModal: $viewModel.isShowingDetail)
+                CharacterDungeonDetailView(mythicRun: viewModel.selectedDungeon!,
+                                           isShowingDetailModal: $viewModel.isShowingDetail)
             }
         }
     }
