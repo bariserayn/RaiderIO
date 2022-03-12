@@ -8,60 +8,59 @@
 import SwiftUI
 
 struct CharacterDetailView: View {
-    let character: Character
-    @StateObject var viewModel = CharacterDetailViewImpl()
+    @StateObject var viewModel: CharacterDetailViewModelImpl
     
     var body: some View {
         ZStack {
             NavigationView {
                 VStack {
                     ZStack {
-                        Image(character.faction == "alliance" ? "alliancebanner1" : "hordebanner1")
+                        Image("alliancebanner1")
                             .resizable()
                             .scaledToFill()
                             .frame(height: 160)
                         
                         HStack {
                             ZStack {
-                                AsyncImage(url: URL(string: character.thumbnailURL)) { image in
+                                AsyncImage(url: URL(string: viewModel.character.thumbnailURL)) { image in
                                     image.resizable()
                                 } placeholder: {
                                     ProgressView()
                                 }
                                 .frame(width: 100, height: 100)
-                                Image(character.covenantName)
+                                Image(viewModel.character.covenantName)
                                     .resizable()
                                     .offset(x: 45, y: 45)
                                     .frame(width: 40, height: 40)
                             }
                             
                             VStack(alignment: .leading) {
-                                Link(character.name, destination: URL(string: character.profileURL)!)
+                                Link(viewModel.character.name, destination: URL(string: viewModel.character.profileURL)!)
                                     .font(.title)
-                                    .foregroundColor(character.factionColor)
-                                
-                                if let _ = character.guild {
-                                    Link("<\(character.guild!.name)>", destination: URL(string: character.guildUrl!)!)
+                                    .foregroundColor(viewModel.character.factionColor)
+
+                                if let _ = viewModel.character.guild {
+                                    Link("<\(viewModel.character.guild!.name)>", destination: URL(string: viewModel.character.guildUrl!)!)
                                         .foregroundColor(.white)
                                 }
-                                
-                                Text("(\(character.region.uppercased()))\(character.realm)")
-                                    .foregroundColor(character.factionColor)
+
+                                Text("(\(viewModel.character.region.uppercased()))\(viewModel.character.realm)")
+                                    .foregroundColor(viewModel.character.factionColor)
                                 HStack {
-                                    Text(character.race)
-                                        .foregroundColor(character.factionColor)
-                                    Text("\(character.spec) \(character.rClass)")
-                                        .foregroundColor(character.classColor)
+                                    Text(viewModel.character.race)
+                                        .foregroundColor(viewModel.character.factionColor)
+                                    Text("\(viewModel.character.spec) \(viewModel.character.rClass)")
+                                        .foregroundColor(viewModel.character.classColor)
                                 }
                             }
                             
                             VStack {
-                                Text("\(Int(character.mythicPlusScoresBySeason[0].segments.all.score)) M+")
-                                    .foregroundColor(Color(hex: character.mythicPlusScoresBySeason[0].segments.all.color))
+                                Text("\(Int(viewModel.character.mythicPlusScoresBySeason[0].segments.all.score)) M+")
+                                    .foregroundColor(Color(hex: viewModel.character.mythicPlusScoresBySeason[0].segments.all.color))
                                     .padding(4)
-                                    .border((Color(hex: character.mythicPlusScoresBySeason[0].segments.all.color)))
+                                    .border((Color(hex: viewModel.character.mythicPlusScoresBySeason[0].segments.all.color)))
                                 
-                                Text(character.raidProgression.sepulcherOfTheFirstOnes.summary)
+                                Text(viewModel.character.raidProgression.sepulcherOfTheFirstOnes.summary)
                                     .foregroundColor(.white)
                                     .padding(4)
                                     .border(.white)
@@ -72,7 +71,7 @@ struct CharacterDetailView: View {
                     
                     List {
                         Section(header: Text("Top 10 Timed Run")) {
-                            ForEach(character.mythicPlusBestRuns) { mythicRun in
+                            ForEach(viewModel.character.mythicPlusBestRuns) { mythicRun in
                                 CharacterRunCell(mythicRun: mythicRun)
                                     .onTapGesture {
                                         withAnimation {
@@ -89,7 +88,7 @@ struct CharacterDetailView: View {
             .toolbar {
                 Button {
                     Task {
-                        await viewModel.saveCharacterData(character: character)
+                        await viewModel.saveCharacterData()
                     }
                 } label: {
                     Image(systemName: SFSymbol.star)
@@ -106,8 +105,7 @@ struct CharacterDetailView: View {
 
 struct CharacterDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        CharacterDetailView(character: MockData.character)
-        
+        CharacterDetailView(viewModel: CharacterDetailViewModelImpl(character: MockData.character))
     }
 }
 

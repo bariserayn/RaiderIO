@@ -8,14 +8,20 @@
 import Foundation
 
 protocol CharacterDetailViewModel {
-    func saveCharacterData(character: Character) async
+    func saveCharacterData() async
 }
 
-@MainActor final class CharacterDetailViewImpl: ObservableObject, CharacterDetailViewModel {
+@MainActor final class CharacterDetailViewModelImpl: ObservableObject, CharacterDetailViewModel {
     @Published var isShowingDetail = false
     @Published var selectedDungeon: MythicPlusRun?
+    
+    var character: Character
+    
+    init(character: Character) {
+        self.character = character
+    }
 
-    func saveCharacterData(character: Character) async {
+    func saveCharacterData() async {
         print("\(character) saving...")
     }
 }
