@@ -38,12 +38,12 @@ struct CharacterDetailView: View {
                                 Link(viewModel.character.name, destination: URL(string: viewModel.character.profileURL)!)
                                     .font(.title)
                                     .foregroundColor(viewModel.character.factionColor)
-
+                                
                                 if let _ = viewModel.character.guild {
                                     Link("<\(viewModel.character.guild!.name)>", destination: URL(string: viewModel.character.guildUrl!)!)
                                         .foregroundColor(.white)
                                 }
-
+                                
                                 Text("(\(viewModel.character.region.uppercased()))\(viewModel.character.realm)")
                                     .foregroundColor(viewModel.character.factionColor)
                                 HStack {
@@ -88,11 +88,16 @@ struct CharacterDetailView: View {
             .toolbar {
                 Button {
                     Task {
-                        await viewModel.saveCharacterData()
+                        viewModel.getAllCharacters()
+                        viewModel.checkIsCharacterSaved() ? viewModel.deleteCharacter() : await viewModel.saveCharacter()
                     }
                 } label: {
-                    Image(systemName: SFSymbol.star)
+                    Image(systemName: viewModel.checkIsCharacterSaved() ? SFSymbol.starFill : SFSymbol.star)
                 }
+            }
+            
+            .onAppear {
+                viewModel.getAllCharacters()
             }
             
             if viewModel.isShowingDetail {
@@ -106,7 +111,7 @@ struct CharacterDetailView: View {
 
 struct CharacterDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        CharacterDetailView(viewModel: CharacterDetailViewModelImpl(character: MockData.character))
+        CharacterDetailView(viewModel: CharacterDetailViewModelImpl(character: MockData.character, coreDataManager: CoreDataManager()))
     }
 }
 

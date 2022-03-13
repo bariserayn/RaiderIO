@@ -12,10 +12,10 @@ struct AppTabView: View {
         TabView {
             SearchCharacterView()
                 .tabItem { Label("Search", systemImage: SFSymbol.search) }
-            CharacterListView()
+            CharacterListView(viewModel: CharacterListViewModelImpl(coreDataManager: CoreDataManager(), service: WebServiceImpl()))
                 .tabItem { Label("Favorites", systemImage: SFSymbol.person) }
-            LeaderboardListView()
-                .tabItem { Label("Leaderboard", systemImage: SFSymbol.starCircle) }
+//            LeaderboardListView()
+//                .tabItem { Label("Leaderboard", systemImage: SFSymbol.starCircle) } //TODO: Leaderbord List View
         }
         .accentColor(.brandPrimary)
     }

@@ -60,7 +60,9 @@ struct SearchCharacterView: View {
                     }.disabled(viewModel.isLoading)
                     
                     if viewModel.isShowingDetail {
-                        NavigationLink(destination: CharacterDetailView(viewModel: CharacterDetailViewModelImpl(character: viewModel.character!)), isActive: $viewModel.isShowingDetail) {}
+                        NavigationLink(destination: CharacterDetailView(viewModel: CharacterDetailViewModelImpl(character: viewModel.character!,
+                                                                                                                coreDataManager: CoreDataManager())),
+                                       isActive: $viewModel.isShowingDetail) {}
                     }
                     
                     Spacer()
